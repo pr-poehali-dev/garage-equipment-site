@@ -16,7 +16,7 @@ interface ProductCategoryProps {
   products: Product[];
 }
 
-export const ProductCategory = ({ id, title, description, products }: ProductCategoryProps) => {
+export const ProductCategory = ({ id, title, description, products = [] }: ProductCategoryProps) => {
   return (
     <section id={id} className="py-16">
       <div className="container mx-auto px-4">
@@ -26,29 +26,35 @@ export const ProductCategory = ({ id, title, description, products }: ProductCat
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <Card key={product.id} className="transition-all hover:shadow-md">
-              <div className="aspect-video w-full overflow-hidden bg-muted">
-                <img 
-                  src={product.image || "/placeholder.svg"} 
-                  alt={product.title}
-                  className="w-full h-full object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>{product.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{product.description}</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">
-                  Подробнее
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          {products && products.length > 0 ? (
+            products.map((product) => (
+              <Card key={product.id} className="transition-all hover:shadow-md">
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  <img 
+                    src={product.image || "/placeholder.svg"} 
+                    alt={product.title}
+                    className="w-full h-full object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>{product.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{product.description}</p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" className="w-full">
+                    Подробнее
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))
+          ) : (
+            <div className="col-span-3 text-center py-10">
+              <p className="text-muted-foreground">Товары в данной категории не найдены</p>
+            </div>
+          )}
         </div>
         
         <div className="mt-12 text-center">
