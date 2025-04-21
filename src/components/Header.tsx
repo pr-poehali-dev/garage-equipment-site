@@ -42,39 +42,45 @@ export const Header = () => {
             <NavigationMenu className="hidden lg:flex">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link to="/">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Главная
-                    </NavigationMenuLink>
-                  </Link>
+                  {/* Исправлено: использую NavigationMenuLink напрямую вместо Link */}
+                  <NavigationMenuLink
+                    href="/"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    Главная
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="#catalog">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Каталог
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="#catalog"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    Каталог
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="#services">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Услуги
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="#services"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    Услуги
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="#about">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      О компании
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="#about"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    О компании
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="#contacts">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Контакты
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="#contacts"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    Контакты
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
